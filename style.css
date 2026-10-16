@@ -1,0 +1,401 @@
+:root {
+  --ink: #20231f;
+  --muted: #72766d;
+  --cream: #f6f5f0;
+  --line: #dedfd8;
+  --accent: #d4784d;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.5;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+.site-header,
+main,
+.site-footer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.site-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.logo {
+  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.header-note,
+.eyebrow,
+.filters,
+.image-info small,
+.site-footer {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero {
+  max-width: 650px;
+  padding: 120px 0 95px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  font-size: clamp(3.6rem, 8vw, 7.5rem);
+  letter-spacing: -0.07em;
+  line-height: 0.94;
+}
+
+h1 em {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 30px;
+  max-width: 450px;
+}
+
+.gallery-heading {
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding-bottom: 17px;
+}
+
+h2 {
+  font-size: 1.55rem;
+}
+
+.filters {
+  display: flex;
+  gap: 22px;
+}
+
+.filter-button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 4px 0;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.filter-button::after {
+  background: var(--accent);
+  bottom: -2px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  width: 100%;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  color: var(--accent);
+}
+
+.filter-button.active::after {
+  transform: scaleX(1);
+}
+
+.gallery-grid {
+  display: grid;
+  gap: 18px;
+  grid-auto-flow: dense;
+  grid-auto-rows: 250px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-card {
+  background: #ddd;
+  border: 0;
+  cursor: pointer;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+}
+
+.gallery-card img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  width: 100%;
+}
+
+.gallery-card::after {
+  background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.68));
+  bottom: 0;
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.gallery-card:hover img {
+  filter: saturate(0.8);
+  transform: scale(1.06);
+}
+
+.image-info {
+  bottom: 20px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  left: 20px;
+  position: absolute;
+  z-index: 1;
+}
+
+.image-info strong {
+  font-family: "Playfair Display", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.image-info small {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.6rem;
+  margin-top: 3px;
+}
+
+.card-wide {
+  grid-column: span 2;
+}
+
+.card-tall {
+  grid-row: span 2;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 35px;
+  padding-top: 80px;
+}
+
+.site-footer span {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-left: 4px;
+}
+
+.lightbox {
+  align-items: center;
+  background: rgba(23, 26, 23, 0.95);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  padding: 60px 9vw;
+  pointer-events: none;
+  position: fixed;
+  transition: opacity 0.35s ease;
+  visibility: hidden;
+  z-index: 10;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.lightbox-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  max-width: 1000px;
+}
+
+.lightbox-content img {
+  max-height: 75vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.lightbox-content figcaption {
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  margin-top: 16px;
+}
+
+.close-button,
+.lightbox-control {
+  background: none;
+  border: 0;
+  color: var(--white);
+  cursor: pointer;
+  position: absolute;
+}
+
+.close-button {
+  font-size: 2.3rem;
+  right: 30px;
+  top: 20px;
+}
+
+.lightbox-control {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  height: 48px;
+  top: 50%;
+  transition: background 0.25s ease, border-color 0.25s ease;
+  width: 48px;
+}
+
+.lightbox-control:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.previous-button {
+  left: 30px;
+}
+
+.next-button {
+  right: 30px;
+}
+
+.image-count {
+  bottom: 25px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  left: 0;
+  letter-spacing: 0.1em;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .header-note {
+    display: none;
+  }
+
+  .hero {
+    padding: 85px 0 65px;
+  }
+
+  .gallery-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 220px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-wide {
+    grid-column: span 2;
+  }
+
+  .site-footer {
+    gap: 20px;
+    padding-top: 55px;
+  }
+
+  .lightbox {
+    padding: 50px 18px;
+  }
+
+  .lightbox-control {
+    bottom: 24px;
+    top: auto;
+  }
+
+  .previous-button {
+    left: calc(50% - 60px);
+  }
+
+  .next-button {
+    right: calc(50% - 60px);
+  }
+}
+
+@media (max-width: 430px) {
+  .site-header,
+  main,
+  .site-footer {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  h1 {
+    font-size: 3.7rem;
+  }
+
+  .gallery-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-card,
+  .card-tall,
+  .card-wide {
+    height: 260px;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

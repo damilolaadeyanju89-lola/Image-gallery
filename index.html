@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive image gallery with category filters and a lightbox view.">
+  <title>AD Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#" aria-label="AD Gallery home">AD<span>.</span></a>
+    <p class="header-note">A collection of beautiful moments</p>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Explore the collection</p>
+      <h1>See the world<br><em>in frames.</em></h1>
+      <p class="hero-text">Browse a handpicked selection of images inspired by nature, cities, people, and the little details that make life memorable.</p>
+    </section>
+
+    <section class="gallery-section" aria-labelledby="gallery-title">
+      <div class="gallery-heading">
+        <h2 id="gallery-title">Latest captures</h2>
+        <div class="filters" role="group" aria-label="Filter gallery images">
+          <button class="filter-button active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="nature">Nature</button>
+          <button class="filter-button" type="button" data-filter="city">City</button>
+          <button class="filter-button" type="button" data-filter="people">People</button>
+          <button class="filter-button" type="button" data-filter="travel">Travel</button>
+          <button class="filter-button" type="button" data-filter="safari">Safari</button>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <button class="gallery-card card-wide" type="button" data-category="nature" aria-label="Open mountain lake image">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85" alt="Mountain range reflected in a calm lake" loading="eager">
+          <span class="image-info"><strong>Quiet horizons</strong><small>Nature</small></span>
+        </button>
+        <button class="gallery-card" type="button" data-category="city" aria-label="Open city street image">
+          <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=85" alt="City street with tall buildings at sunset" loading="lazy">
+          <span class="image-info"><strong>Between buildings</strong><small>City</small></span>
+        </button>
+        <button class="gallery-card" type="button" data-category="people" aria-label="Open portrait image">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85" alt="Portrait of a smiling woman outdoors" loading="lazy">
+          <span class="image-info"><strong>Golden hour</strong><small>People</small></span>
+        </button>
+        <button class="gallery-card" type="button" data-category="travel" aria-label="Open coastal road image">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85" alt="Winding road beside a blue coastline" loading="lazy">
+          <span class="image-info"><strong>Take the long way</strong><small>Travel</small></span>
+        </button>
+        <button class="gallery-card card-tall" type="button" data-category="nature" aria-label="Open forest image">
+          <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85" alt="Sunlight shining through a green forest" loading="lazy">
+          <span class="image-info"><strong>Into the wild</strong><small>Nature</small></span>
+        </button>
+        <button class="gallery-card card-wide" type="button" data-category="city" aria-label="Open city skyline image">
+          <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=85" alt="City skyline under a dramatic sky" loading="lazy">
+          <span class="image-info"><strong>Urban rhythm</strong><small>City</small></span>
+        </button>
+        <button class="gallery-card" type="button" data-category="people" aria-label="Open friends by the sea image">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85" alt="Friends enjoying time together by the sea" loading="lazy">
+          <span class="image-info"><strong>Good company</strong><small>People</small></span>
+        </button>
+        <button class="gallery-card" type="button" data-category="travel" aria-label="Open travel boat image">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85" alt="Small boat floating on clear blue water" loading="lazy">
+          <span class="image-info"><strong>Blue escape</strong><small>Travel</small></span>
+        </button>
+        <button class="gallery-card card-wide" type="button" data-category="nature" aria-label="Open desert landscape image">
+          <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1200&q=85" alt="Open desert landscape beneath a warm evening sky" loading="lazy">
+          <span class="image-info"><strong>Open spaces</strong><small>Nature</small></span>
+        </button>
+        <button class="gallery-card card-tall" type="button" data-category="safari" aria-label="Open lion image">
+          <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=900&q=85" alt="Lion resting in the golden grass" loading="lazy">
+          <span class="image-info"><strong>King of the plains</strong><small>Safari</small></span>
+        </button>
+        <button class="gallery-card" type="button" data-category="safari" aria-label="Open elephant image">
+          <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=900&q=85" alt="Elephant walking across the savanna" loading="lazy">
+          <span class="image-info"><strong>Gentle giants</strong><small>Safari</small></span>
+        </button>
+        <button class="gallery-card card-wide" type="button" data-category="safari" aria-label="Open giraffe image">
+          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85" alt="Giraffe standing in a wide African landscape" loading="lazy">
+          <span class="image-info"><strong>Above the grass</strong><small>Safari</small></span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with curiosity <span>✦</span></p>
+    <p>© 2024 AD Gallery</p>
+  </footer>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" aria-hidden="true">
+    <button class="close-button" type="button" aria-label="Close image preview">&times;</button>
+    <button class="lightbox-control previous-button" type="button" aria-label="Previous image">&#8592;</button>
+    <figure class="lightbox-content">
+      <img src="" alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button class="lightbox-control next-button" type="button" aria-label="Next image">&#8594;</button>
+    <p class="image-count"></p>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
